@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block content %}
+<h1>Registrar Cliente</h1>
+
+<form method="POST">
+    <input type="text" name="nombre" placeholder="Nombre completo" required />
+    <input type="email" name="correo" placeholder="Correo electrónico" required />
+    <button type="submit">Agregar Cliente</button>
+</form>
+
+<h2>Lista de Clientes</h2>
+<ul>
+    {% for cliente in clientes %}
+        <li>
+            {{ cliente['nombre'] }} — {{ cliente['correo'] }}
+            <a href="{{ url_for('eliminar_cliente', cliente_id=cliente['id']) }}"
+               style="color:red; text-decoration:none; margin-left:10px;" 
+               onclick="return confirm('¿Seguro quieres eliminar este cliente?');">
+               &#x2716;
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

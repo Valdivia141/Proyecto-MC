@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Historial de Ventas{% endblock %}
+
+{% block content %}
+<h1>Historial de Ventas</h1>
+
+{% for venta in ventas %}
+    <div style="border:1px solid #ccc; padding:10px; margin-bottom:15px;">
+        <strong>Venta ID:</strong> {{ venta['id'] }}<br/>
+        <strong>Fecha:</strong> {{ venta['fecha'] }}<br/>
+        <strong>Cliente:</strong> {{ venta['cliente_nombre'] }}<br/>
+        <strong>Productos:</strong>
+        <ul>
+            {% for item in ventas_detalle[venta['id']] %}
+                <li>{{ item['nombre'] }} — Cantidad: {{ item['cantidad'] }} — Precio unitario: ${{ item['precio'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <p>No hay ventas registradas.</p>
+{% endfor %}
+
+<a href="/">← Volver al inicio</a>
+{% endblock %}

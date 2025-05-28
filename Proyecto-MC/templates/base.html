@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Minimarket{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <nav style="background:#eee; padding:10px; margin-bottom:20px;">
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('productos') }}">Productos</a>
+        <a href="{{ url_for('categorias') }}">Categorías</a> |
+        <a href="{{ url_for('clientes') }}">Clientes</a> |
+        <a href="{{ url_for('ventas') }}">Registrar Venta</a> |
+        <a href="{{ url_for('historial_ventas') }}">Historial de Ventas</a>
+    </nav>
+
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
