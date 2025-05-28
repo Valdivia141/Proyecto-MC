@@ -3,5 +3,3 @@ Proyecto de medio ciclo de programacion Avanzada
 JHONNY ANDRES CONTRERA FARIAS
 LUIS MIKE SANCHEZ PINOARGOTE
 ARIEL ALEJANDRO VALDIVIEZO GONZALEZ
-
-erick vales vrga
