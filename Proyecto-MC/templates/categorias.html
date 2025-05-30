@@ -3,24 +3,26 @@
 {% block title %}Categorías{% endblock %}
 
 {% block content %}
-<h1>Categorías</h1>
+<section class="categorias-section">
+    <h1 class="titulo-seccion">Categorías</h1>
 
-<form action="/categorias" method="POST">
-    <input type="text" name="nombre" placeholder="Nombre de la categoría" required />
-    <button type="submit">Agregar Categoría</button>
-</form>
+    <form class="formulario-categoria" action="/categorias" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre de la categoría" required />
+        <button type="submit" class="btn-agregar">Agregar Categoría</button>
+    </form>
 
-<h2>Lista de categorías</h2>
-<ul>
-    {% for categoria in categorias %}
-        <li>
-            {{ categoria['nombre'] }}
-            <a href="{{ url_for('eliminar_categoria', categoria_id=categoria['id']) }}" 
-               style="color:red; text-decoration:none; margin-left:10px;" 
-               onclick="return confirm('¿Seguro quieres eliminar esta categoría?');">
-               &#x2716; <!-- símbolo de X -->
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+    <h2 class="subtitulo">Lista de categorías</h2>
+    <ul class="lista-categorias">
+        {% for categoria in categorias %}
+            <li class="categoria-item">
+                <span>{{ categoria['nombre'] }}</span>
+                <a href="{{ url_for('eliminar_categoria', categoria_id=categoria['id']) }}"
+                   class="btn-eliminar-categoria"
+                   onclick="return confirm('¿Seguro quieres eliminar esta categoría?');">
+                   &#x2716;
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}

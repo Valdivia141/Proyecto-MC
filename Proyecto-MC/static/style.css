@@ -1,7 +1,19 @@
+/*fuente poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    font-family: Arial, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
     margin: 40px;
-    background-color: #f8f8f8;
+    background-color: #ddd;
+    background-image: url("../static/images/fondo.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+
 }
 
 h1, h2 {
@@ -19,8 +31,410 @@ ul {
 }
 
 li {
-    background: #fff;
-    padding: 10px;
+    padding: 10px 0;
     margin: 5px 0;
+}
+.titulo {
+    font-size: 9em;
+    text-align: center;
+    color: #dd9821;
+}
+.titulo span {
+    color: #2774af;
+}
+
+/* PANEL DE CONTROL */
+.text-container {
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.text-container .text {
+    padding-left: 10px;
+}
+
+.text-container .text h1 {
+    font-size: 4em;
+}
+
+.text-container .text p {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    color: #555555;
+}
+
+.text-container .logo-home {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    right: 3%;
+}
+
+.dashboard-container {
+    padding: 30px;
+    background-color: #edb016;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.dashboard-card {
+    background-color: white;
+    color: #1c1c1c;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.dashboard-card:hover {
+    background-color: #e58e0d;
+    color: #fff;
+}
+
+/* PRODUCTOS */
+.productos-section {
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 40px;
+}
+
+.titulo-seccion {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.formulario-producto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-producto input,
+.formulario-producto select {
+    flex: 1 1 200px;
+    padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.btn-agregar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-agregar:hover {
+    background-color: #218838;
+}
+
+.lista-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tarjeta-producto {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-left: 5px solid #edb016;
+}
+
+.tarjeta-producto p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.acciones-producto {
+    margin-top: 10px;
+}
+
+.btn-editar, .btn-eliminar {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-editar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #0056b3;
+}
+
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+/* CATEGORIAS */
+.categorias-section {
+    padding: 30px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 40px;
+}
+
+.formulario-categoria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.formulario-categoria input {
+    flex: 1 1 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.lista-categorias {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categoria-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-size: 1.1em;
+}
+
+.btn-eliminar-categoria {
+    color: #dc3545;
+    font-size: 1.4em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-eliminar-categoria:hover {
+    color: #a71d2a;
+    transform: scale(1.1);
+}
+
+/* CLIENTES */
+.clientes-section {
+    padding: 30px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 40px;
+}
+
+.formulario-cliente {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.formulario-cliente input {
+    flex: 1 1 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.lista-clientes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cliente-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    font-size: 1.1em;
+}
+
+.btn-eliminar-cliente {
+    color: #dc3545;
+    font-size: 1.4em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-eliminar-cliente:hover {
+    color: #a71d2a;
+    transform: scale(1.1);
+}
+
+/* REGISTRAR VENTAS */
+.venta-section {
+    padding: 30px;
+    background-color: #fefefe;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 40px;
+}
+
+.venta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.venta-form select,
+.venta-form input[type="number"] {
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+}
+
+.producto-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-agregar,
+.btn-principal {
+    padding: 10px 20px;
+    border: none;
+    background-color: #edb016;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover,
+.btn-principal:hover {
+    background-color: #e58e0d;
+}
+
+.btn-volver {
+    margin-top: 20px;
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-volver:hover {
+    text-decoration: underline;
+}
+
+
+/* HISTORIAL DE VENTAS */
+.historial-section {
+    padding: 30px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 40px;
+}
+
+.venta-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.venta-card:hover {
+    transform: scale(1.01);
+}
+
+.detalle-venta {
+    list-style: disc;
+    margin-left: 20px;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.mensaje-sin-datos {
+    font-style: italic;
+    color: #777;
+    margin-top: 20px;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.btn-volver:hover {
+    text-decoration: underline;
 }

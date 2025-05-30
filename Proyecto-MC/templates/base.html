@@ -6,14 +6,62 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
-    <nav style="background:#eee; padding:10px; margin-bottom:20px;">
-        <a href="{{ url_for('index') }}">Inicio</a>
-        <a href="{{ url_for('productos') }}">Productos</a>
-        <a href="{{ url_for('categorias') }}">Categorías</a> |
-        <a href="{{ url_for('clientes') }}">Clientes</a> |
-        <a href="{{ url_for('ventas') }}">Registrar Venta</a> |
-        <a href="{{ url_for('historial_ventas') }}">Historial de Ventas</a>
-    </nav>
+    {% set current_path = request.path %}
+    <div class="text-container">
+        <div class="text">
+            <h1>Bienvenido al Panel de Control</h1>
+            <p>Desde aquí puedes administrar productos, categorías, clientes y ventas.</p>
+        </div>
+        <a href="{{ url_for('index') }}"><img class="logo-home" src="{{ url_for('static', filename='images/home.png') }}" alt=""></a>
+    </div>
+    <div class="dashboard-container">
+        
+
+        <ul class="dashboard-grid">
+            <li><a href="{{ url_for('productos') }}" class="dashboard-card 
+                {% if current_path == url_for('productos') %}active{% endif %}
+                ">PRODUCTOS</a></li>
+            <li><a href="{{ url_for('categorias') }}" class="dashboard-card 
+                {% if current_path == url_for('categorias') %}active{% endif %}
+                ">CATEGORÍAS</a></li>
+            <li><a href="{{ url_for('clientes') }}" class="dashboard-card 
+                {% if current_path == url_for('clientes') %}active{% endif %}
+                ">CLIENTES</a></li>
+            <li><a href="{{ url_for('ventas') }}" class="dashboard-card 
+                {% if current_path == url_for('ventas') %}active{% endif %}
+                ">REGISTRAR VENTA</a></li>
+            <li><a href="{{ url_for('historial_ventas') }}" class="nav-link dashboard-card 
+                {% if current_path == url_for('historial_ventas') %}active{% endif %}
+                ">HISTORIAL DE VENTAS</a></li>
+        </ul>
+    </div>
+
+    <!-- <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="navbar-menu">
+                <li><a href="{{ url_for('index') }}" class="dashboard-card 
+                    {% if current_path == url_for('index') %}active{% endif %}
+                    ">Inicio</a></li>
+                <li><a href="{{ url_for('productos') }}" class="dashboard-card 
+                    {% if current_path == url_for('productos') %}active{% endif %}
+                    ">Productos</a></li>
+                <li><a href="{{ url_for('categorias') }}" class="dashboard-card 
+                    {% if current_path == url_for('categorias') %}active{% endif %}
+                    ">Categorías</a></li>
+                <li><a href="{{ url_for('clientes') }}" class="dashboard-card 
+                    {% if current_path == url_for('clientes') %}active{% endif %}
+                    ">Clientes</a></li>
+                <li><a href="{{ url_for('ventas') }}" class="dashboard-card 
+                    {% if current_path == url_for('ventas') %}active{% endif %}
+                    ">Registrar Venta</a></li>
+                <li><a href="{{ url_for('historial_ventas') }}" class="nav-link dashboard-card 
+                    {% if current_path == url_for('historial_ventas') %}active{% endif %}
+                    ">Historial de Ventas</a></li>
+            </ul>
+        </div>
+    </nav> -->
+
+
 
 
     <div class="content">

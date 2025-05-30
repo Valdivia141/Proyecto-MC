@@ -3,23 +3,30 @@
 {% block title %}Historial de Ventas{% endblock %}
 
 {% block content %}
-<h1>Historial de Ventas</h1>
+<section class="historial-section">
+    <h1 class="titulo-seccion">Historial de Ventas</h1>
 
-{% for venta in ventas %}
-    <div style="border:1px solid #ccc; padding:10px; margin-bottom:15px;">
-        <strong>Venta ID:</strong> {{ venta['id'] }}<br/>
-        <strong>Fecha:</strong> {{ venta['fecha'] }}<br/>
-        <strong>Cliente:</strong> {{ venta['cliente_nombre'] }}<br/>
-        <strong>Productos:</strong>
-        <ul>
-            {% for item in ventas_detalle[venta['id']] %}
-                <li>{{ item['nombre'] }} — Cantidad: {{ item['cantidad'] }} — Precio unitario: ${{ item['precio'] }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-{% else %}
-    <p>No hay ventas registradas.</p>
-{% endfor %}
+    {% if ventas %}
+        {% for venta in ventas %}
+            <div class="venta-card">
+                <p><strong>Venta ID:</strong> {{ venta['id'] }}</p>
+                <p><strong>Fecha:</strong> {{ venta['fecha'] }}</p>
+                <p><strong>Cliente:</strong> {{ venta['cliente_nombre'] }}</p>
+                <p><strong>Productos:</strong></p>
+                <ul class="detalle-venta">
+                    {% for item in ventas_detalle[venta['id']] %}
+                        <li>
+                            {{ item['nombre'] }} — Cantidad: {{ item['cantidad'] }} — Precio unitario: ${{ item['precio'] }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="mensaje-sin-datos">No hay ventas registradas.</p>
+    {% endif %}
 
-<a href="/">← Volver al inicio</a>
+    <a href="/" class="btn-volver">← Volver al inicio</a>
+</section>
 {% endblock %}
+

@@ -3,32 +3,36 @@
 {% block title %}Productos{% endblock %}
 
 {% block content %}
-<h1>Productos</h1>
+<section class="productos-section">
+    <h1 class="titulo-seccion">Productos</h1>
 
-<form action="/agregar" method="POST">
-    <input type="text" name="nombre" placeholder="Nombre del producto" required>
-    <input type="number" step="0.01" name="precio" placeholder="Precio" required>
-    <input type="number" name="stock" placeholder="Stock" required>
-    <select name="categoria_id" required>
-        <option value="">Selecciona categoría</option>
-        {% for categoria in categorias %}
-            <option value="{{ categoria['id'] }}">{{ categoria['nombre'] }}</option>
+    <form class="formulario-producto" action="/agregar" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre del producto" required>
+        <input type="number" step="0.01" name="precio" placeholder="Precio" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <select name="categoria_id" required>
+            <option value="">Selecciona categoría</option>
+            {% for categoria in categorias %}
+                <option value="{{ categoria['id'] }}">{{ categoria['nombre'] }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn-agregar">Agregar producto</button>
+    </form>
+
+    <h2 class="subtitulo">Lista de productos</h2>
+    <div class="lista-productos">
+        {% for producto in productos %}
+            <div class="tarjeta-producto">
+                <p><strong>{{ producto['nombre'] }}</strong></p>
+                <p>Precio: ${{ producto['precio'] }} | Stock: {{ producto['stock'] }}</p>
+                <p>Categoría: {{ producto['categoria_nombre'] or 'Sin categoría' }}</p>
+                <div class="acciones-producto">
+                    <a href="{{ url_for('editar_producto', producto_id=producto['id']) }}" class="btn-editar">Editar</a>
+                    <a href="{{ url_for('eliminar_producto', producto_id=producto['id']) }}" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este producto?');">Eliminar</a>
+                </div>
+            </div>
         {% endfor %}
-    </select>
-    <button type="submit">Agregar producto</button>
-</form>
+    </div>
+</section>
 
-<h2>Lista de productos</h2>
-<ul>
-    {% for producto in productos %}
-        <li>
-            {{ producto['nombre'] }} — ${{ producto['precio'] }} — Stock: {{ producto['stock'] }} — Categoría: {{ producto['categoria_nombre'] or 'Sin categoría' }}
-            <!-- Enlace para editar -->
-            <a href="{{ url_for('editar_producto', producto_id=producto['id']) }}">Editar</a>
-
-            <!-- Enlace para eliminar -->
-            <a href="{{ url_for('eliminar_producto', producto_id=producto['id']) }}" onclick="return confirm('¿Estás seguro de eliminar este producto?');">Eliminar</a>
-        </li>
-    {% endfor %}
-</ul>
 {% endblock %}
